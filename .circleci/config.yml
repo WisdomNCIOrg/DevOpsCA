@@ -1,24 +1,4 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:node:.
 version: 2.1
-orbs:
-  node: circleci/node@5
-jobs:
-  test-node:
-    # Install node dependencies and run tests
-    executor: node/default
-    steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: npm
-      - run:
-          name: Run tests
-          command: npm test --passWithNoTests
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:version: 2.1
 
 workflows:
     version: 2
@@ -48,4 +28,4 @@ jobs:
             - save_cache:
                 key: dependency-cache-{{ checksum "package-lock.json"}} 
                 paths:
-                    - ./node_modules 
+                    - ./node_modules
